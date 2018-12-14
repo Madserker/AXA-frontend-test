@@ -8,7 +8,8 @@
     "react-redux": "^6.0.0",
     "react-scripts": "2.1.1",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "typescript": "^3.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -24,5 +25,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "style-loader": "^0.23.1"
+  }
 }

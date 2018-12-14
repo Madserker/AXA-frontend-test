@@ -1,10 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-export default class ListItem extends Component {
+export default class ListItem extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+
+        }
+    }
     render(){
         return(
             <div>
-                Nani the fuk?
+                {this.props.gnome}
             </div>
         )
     }

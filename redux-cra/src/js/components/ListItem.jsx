@@ -11,7 +11,7 @@ export default class ListItem extends React.Component {
     render(){
         return(
             <div>
-                <img className="image" src={this.props.gnome.thumbnail}></img>
+                <img className="image" src={this.props.gnome.thumbnail} alt=""></img>
                 <div className="infoDiv">
                 <p>{this.props.gnome.name}</p>
                 </div>

@@ -1,5 +1,62 @@
+/* 
+main color
+
+
+*/
+
+.toolbar p{
+    display:inline;
+    font-size: 40px;
+    
+}
+.logo{
+    display:inline;
+    height: 70px;
+    width: 70px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
 .item{
-    color:"red";
-    font-size: 30px;
-    background-color: aqua;
+    background-color: rgb(101, 145, 98);
+    margin:10px;
+    border-radius: 10px;
+    padding:10px;
+    margin-left:20%;
+    margin-right:20%;
+}
+
+
+.infoDiv{
+    font-size: 40px;
+    margin-left:10px;
+}
+
+.image{
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 50px;
+    border: 10px solid rgb(155, 206, 151);
+    margin-left:5px;
+    margin-right:5px;
+    cursor: pointer;
+    float:left;
+}
+
+.toolbar{
+background-color: rgb(101, 145, 98);
+position:fixed;
+top: 0px;
+color: WHITE;
+right: 0;
+left: 0;
+font-size:30px;
+padding:10px;
+
+display:inline-block;
+}
+
+.gnomesList{
+    margin-top: 110px;
 }

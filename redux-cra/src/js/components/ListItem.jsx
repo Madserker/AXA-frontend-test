@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css';
 
 export default class ListItem extends React.Component {
     constructor(props){
@@ -10,7 +11,10 @@ export default class ListItem extends React.Component {
     render(){
         return(
             <div>
-                {this.props.gnome}
+                <img className="image" src={this.props.gnome.thumbnail}></img>
+                <div className="infoDiv">
+                <p>{this.props.gnome.name}</p>
+                </div>
             </div>
         )
     }

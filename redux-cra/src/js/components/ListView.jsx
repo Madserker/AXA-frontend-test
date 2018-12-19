@@ -17,14 +17,13 @@ export default class ListView extends React.Component {
     }
     render(){
         return(
-            <div>
+            <div className="gnomesList">
                 {
                     this.state.gnomes.map((gnome) => (
                         <div className="item" key={gnome.id}>
-                            <h3>{gnome.name}</h3>
+                        < ListItem gnome={gnome}/>
                         </div>
-                    )
-                    )
+                    ))
                 }
             </div>
         )

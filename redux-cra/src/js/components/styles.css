@@ -5,31 +5,35 @@ main color
 */
 
 .toolbar p{
-    display:inline;
     font-size: 40px;
+    float:left;
+    margin:5px;
+    margin-left:20px;
     
 }
 .logo{
     display:inline;
-    height: 70px;
-    width: 70px;
-    margin-left: 150px;
-    margin-right: 150px;
+    height: 60px;
+    width: 60px;
+    float:left;
+    margin:5px;
+
 }
 
 .item{
-    background-color: rgb(101, 145, 98);
+    background-color: #727272;
     margin:10px;
     border-radius: 10px;
     padding:10px;
-    margin-left:20%;
-    margin-right:20%;
+    margin-left:10%;
+    margin-right:10%;
+
 }
 
 
 .infoDiv{
     font-size: 40px;
-    margin-left:10px;
+    display:inline-block
 }
 
 .image{
@@ -37,26 +41,29 @@ main color
     width: 80px;
     object-fit: cover;
     border-radius: 50px;
-    border: 10px solid rgb(155, 206, 151);
+    border: 10px solid #acacac;
+
     margin-left:5px;
     margin-right:5px;
-    cursor: pointer;
+    margin-top:15px;
+
+
     float:left;
 }
 
 .toolbar{
-background-color: rgb(101, 145, 98);
-position:fixed;
-top: 0px;
-color: WHITE;
-right: 0;
-left: 0;
-font-size:30px;
-padding:10px;
+    background-color: #727272;
+    position:fixed;
+    top: 0px;
+    color: WHITE;
+    right: 0;
+    left: 0;
+    font-size:30px;
+    float:left;
+    border-bottom: 3px solid #243b57;
 
-display:inline-block;
 }
 
 .gnomesList{
-    margin-top: 110px;
+    margin-top: 80px;
 }

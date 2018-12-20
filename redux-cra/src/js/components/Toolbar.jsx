@@ -15,11 +15,11 @@ export default class Toolbar extends React.Component {
     render(){
         return(
             <div className="toolbar">
-            <img src={gnome} className="logo"></img>
+            <img src={gnome} className="logo" alt=""></img>
             <p>
             BrastlewApp
             </p> 
-            <img src={gnome} className="logo"></img>
+            {/* <img src={gnome} className="logo"></img> */}
             </div>
         )
     }

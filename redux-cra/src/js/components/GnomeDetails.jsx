@@ -1,19 +1,23 @@
 import React from 'react';
 import './styles.css';
 import { connect } from 'react-redux';
-import {fetchGnomes} from '../actions/getActions'
+import {getGnomeInfo} from '../actions/getActions'
 import PropTypes from 'prop-types';
+import Toolbar from './Toolbar';
 
 
 class GnomeDetails extends React.Component {
-
     componentWillMount(){
-        //this.props.loadGnomeInfo(gnome);
+        const { id } = this.props.match.params
+        console.log(id);
     }
     render(){
         return(
             <div className="gnomeDetails">
+                        <Toolbar/>
                 {
+                <img className="image" src={this.props.gnome.thumbnail} alt=""></img>
+                    
                     // this.props.gnomes.map((gnome) => (
                     //     <div className="item" key={gnome.id}>
                     //     < ListItem gnome={gnome}/>
@@ -26,13 +30,13 @@ class GnomeDetails extends React.Component {
     }
 }
 
-GnomeDetails.propTypes = {
-    fetchGnomes: PropTypes.func.isRequired,
-    gnomes: PropTypes.array.isRequired
-}
+// GnomeDetails.propTypes = {
+//     getGnomeInfo: PropTypes.func.isRequired,
+//     gnome: PropTypes.object.isRequired
+// }
 
 const mapStateToProps = state => ({
-    gnomes: state.gnomes.gnomes
+    gnome: state.gnomes.gnome
 });
 
-export default connect(mapStateToProps, { fetchGnomes })(GnomeDetails);
+export default connect(mapStateToProps, { getGnomeInfo })(GnomeDetails);

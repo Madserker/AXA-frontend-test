@@ -12,6 +12,22 @@ export function fetchGnomes(){
     }
 }
 
+export function getGnomeInfo(id){
+    return function(dispatch){
+        fetch(api)
+        .then(res => res.json())
+        .then(gnomes => gnomes.map((gnome) => {
+            if(gnome.id===id){
+                console.log(gnome);
+                dispatch({
+                    type:"GET_GNOME",
+                    payload: gnome
+                })
+            }
+        }))
+    }
+}
+
 
 //SEARCH FILTERS ACTIONS=================================================
 //Se puede aplicar mas de un filtro a la vez,

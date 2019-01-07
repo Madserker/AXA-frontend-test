@@ -1,16 +1,15 @@
-import {FETCH_GNOMES} from '../actions/types'
+
 
 const initialState = {
-    items : [],
-    item:{}
+    gnomes : []
 } 
 
 export default function(state=initialState, action){
     switch(action.type){
-        case FETCH_GNOMES:
+        case "FETCH_GNOMES":
             return {
                 ...state,
-                items: action.payload
+                gnomes: action.payload
             };
 
         default:

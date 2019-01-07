@@ -1,32 +1,31 @@
 import React from 'react';
-import ListItem from './ListItem';
 import './styles.css';
 import { connect } from 'react-redux';
 import {fetchGnomes} from '../actions/getActions'
 import PropTypes from 'prop-types';
 
 
-class ListView extends React.Component {
+class GnomeDetails extends React.Component {
 
     componentWillMount(){
-        this.props.fetchGnomes();
+        //this.props.loadGnomeInfo(gnome);
     }
     render(){
         return(
-            <div className="gnomesList">
+            <div className="gnomeDetails">
                 {
-                    this.props.gnomes.map((gnome) => (
-                        <div className="item" key={gnome.id}>
-                        < ListItem gnome={gnome}/>
-                        </div>
-                    ))
+                    // this.props.gnomes.map((gnome) => (
+                    //     <div className="item" key={gnome.id}>
+                    //     < ListItem gnome={gnome}/>
+                    //     </div>
+                    // ))
                 }
             </div>
         );
     }
 }
 
-ListView.propTypes = {
+GnomeDetails.propTypes = {
     fetchGnomes: PropTypes.func.isRequired,
     gnomes: PropTypes.array.isRequired
 }
@@ -35,4 +34,4 @@ const mapStateToProps = state => ({
     gnomes: state.gnomes.gnomes
 });
 
-export default connect(mapStateToProps, { fetchGnomes })(ListView);
+export default connect(mapStateToProps, { fetchGnomes })(GnomeDetails);

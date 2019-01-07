@@ -1,12 +1,12 @@
-import{ FETCH_GNOMES } from './types';
+var api = "https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json";
 
 export function fetchGnomes(){
     return function(dispatch){
-        fetch('https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json')
+        fetch(api)
         .then(res => res.json())
         .then(gnomes =>
             dispatch({
-                type:FETCH_GNOMES,
+                type:"FETCH_GNOMES",
                 payload: gnomes.Brastlewark
             }));
     }
@@ -19,12 +19,12 @@ export function fetchGnomes(){
 //tambien ordenamos la lista que retornamos de los filtros, y no la lista original
 export function fetchGnomesFilters(){
     return function(dispatch){
-        fetch('https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json')
+        fetch(api)
         .then(res => res.json())
         .then(gnomes => filterByHairColor("Pink",gnomes.Brastlewark))
         .then(gnomes =>
             dispatch({
-                type:FETCH_GNOMES,
+                type:"FETCH_GNOMES",
                 payload: gnomes
             }));
 }

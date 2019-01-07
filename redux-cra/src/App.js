@@ -15,7 +15,7 @@ class App extends Component {
           <Provider store={store}>
           <Router>
             <div className="App">
-            <Route path="/home" component={Home}/>
+            <Route path="/" exact component={Home}/>
             <Route path="/details/:id" component={GnomeDetails}/>
           </div>
         </Router>

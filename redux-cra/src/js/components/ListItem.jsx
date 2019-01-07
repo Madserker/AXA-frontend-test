@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+import {Link} from 'react-router-dom';
 
 export default class ListItem extends React.Component {
     constructor(props){
@@ -10,12 +11,14 @@ export default class ListItem extends React.Component {
     }
     render(){
         return(
+            <Link to={"/details/" + this.props.gnome.id}>
             <div>
                 <img className="image" src={this.props.gnome.thumbnail} alt=""></img>
                 <div className="infoDiv">
                 <p>{this.props.gnome.name}</p>
                 </div>
             </div>
+            </Link>
         )
     }
 }

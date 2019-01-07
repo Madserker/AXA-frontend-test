@@ -20,6 +20,7 @@ class GnomeDetails extends React.Component {
                     //     </div>
                     // ))
                 }
+                halo
             </div>
         );
     }

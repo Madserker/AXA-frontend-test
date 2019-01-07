@@ -26,13 +26,13 @@ export default class Toolbar extends React.Component {
 
 
 
-            <div class="search-container">
+            <div className="search-container">
                 <form action="/action_page.php">
                     <input type="text" placeholder="Search.." name="search"></input>
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <button type="submit"><i className="fa fa-search"></i></button>
                 </form>
             </div>
-            <span class="openFilters" id="openButton">&#9776;</span>
+            <span className="openFilters" id="openButton">&#9776;</span>
             </div>
         )
     }

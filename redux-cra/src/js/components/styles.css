@@ -4,6 +4,9 @@ main color
 
 */
 
+body{
+  background-color: #000000;
+}
 .toolbar p{
     font-size: 40px;
     float:left;
@@ -14,14 +17,18 @@ main color
 
 
 .item{
-    background-color: #f8db7d;
-    margin:10px;
-    border-radius: 10px;
+    background-color: #383838;
+    margin:20px;
+    border-radius: 5px;
     padding:10px;
     margin-left:10%;
     margin-right:10%;
     cursor:pointer;
 
+}
+
+.LinkItem{
+  color:rgb(187, 187, 187);
 }
 
 
@@ -36,7 +43,7 @@ main color
     width: 80px;
     object-fit: cover;
     border-radius: 50px;
-    border: 10px solid #dfc36a;
+    border: 10px solid #1f1f1f;
 
     margin-left:5px;
     margin-right:5px;
@@ -53,10 +60,13 @@ main color
 
 
 /*TOOLBAR=============================*/
+.link{
+  margin: -14px;
+}
 
 .topnav {
     overflow: hidden;
-    background-color: #dfc36a;
+    background-color: #141414;
     position: fixed;
     top:0;
     right:0;
@@ -66,11 +76,11 @@ main color
   .topnav a {
     float: left;
     display: block;
-    color: black;
+    color: rgb(175, 175, 175);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 20px;
   }
   
   /* .topnav a:hover {

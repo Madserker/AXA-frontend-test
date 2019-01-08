@@ -11,7 +11,7 @@ export default class ListItem extends React.Component {
     }
     render(){
         return(
-            <Link to={"/details/" + this.props.gnome.id}>
+            <Link to={"/details/" + this.props.gnome.id} className="LinkItem">
             <div>
                 <img className="image" src={this.props.gnome.thumbnail} alt=""></img>
                 <div className="infoDiv">

@@ -1,12 +1,55 @@
+body{
+    background-color: #1f1f1f;
+    color:rgb(219, 219, 219);
+}
+
 .left_info{
     margin-top: 50px;
-    background-color: rgb(122, 171, 214);
+    background-color: #1f1f1f;
     float: left;
-    height:100vh;
+    height:93.7vh;
+    border-right: #141414 8px solid;
 }
 
 .left_info img{
     margin-top: 20px;
-    margin-left:10px;
-    margin-right:10px;
+    margin-left:20px;
+    margin-right:20px;
+
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+
+}
+
+
+.right_info{
+    margin-top: 50px;
+    background-color: #1f1f1f;
+    float: left;
+    height:93.7vh;
+}
+
+.right_info h1{
+    text-align: left;
+    padding-left:20px;
+}
+.right_info p{
+    text-align:left;
+    margin-left:20px;
+    padding-left:30px;
+}
+.left_info p{
+    text-align:left;
+    margin-left:20px;
+}
+
+.professions{
+    border-bottom: #141414 8px solid;
+
+}
+.friends{
+    border-bottom: #141414 8px solid;
+    
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
 import gnome from './gnome.png'
+import {Link} from 'react-router-dom';
 
 
 export default class Toolbar extends React.Component {
@@ -15,15 +16,14 @@ export default class Toolbar extends React.Component {
     render(){
         return(
             <div className="topnav">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 
-            <img src={gnome} className="logo" alt=""></img>
-            <a>
-            BrastlewApp
-            </a> 
-            {/* <img src={gnome} className="logo"></img> */}
-
-
+            <Link to="/" className="link">
+                <img src={gnome} className="logo" alt=""></img>
+                <a>
+                BrastlewApp
+                </a> 
+            </Link>
 
 
             <div className="search-container">

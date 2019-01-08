@@ -1,0 +1,12 @@
+.left_info{
+    margin-top: 50px;
+    background-color: rgb(122, 171, 214);
+    float: left;
+    height:100vh;
+}
+
+.left_info img{
+    margin-top: 20px;
+    margin-left:10px;
+    margin-right:10px;
+}

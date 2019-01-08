@@ -1,3 +1,4 @@
+import {resolve} from "react-resolve"
 var api = "https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json";
 
 export function fetchGnomes(){
@@ -16,13 +17,15 @@ export function getGnomeInfo(id){
     return function(dispatch){
         fetch(api)
         .then(res => res.json())
-        .then(gnomes => gnomes.map((gnome) => {
-            if(gnome.id===id){
+        .then(json => json.Brastlewark)
+        .then(gnomes=> gnomes.map((gnome) => {
+            if(gnome.id==id){
                 console.log(gnome);
                 dispatch({
                     type:"GET_GNOME",
                     payload: gnome
                 })
+                resolve()
             }
         }))
     }

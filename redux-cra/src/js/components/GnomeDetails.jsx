@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import './stylesGnome.css';
 import { connect } from 'react-redux';
 import {getGnomeInfo} from '../actions/getActions'
 import PropTypes from 'prop-types';
@@ -10,21 +10,18 @@ class GnomeDetails extends React.Component {
     componentWillMount(){
         const { id } = this.props.match.params
         console.log(id);
+        this.props.getGnomeInfo(id);
     }
     render(){
         return(
             <div className="gnomeDetails">
-                        <Toolbar/>
+            <Toolbar/>
+                <div className="left_info">
                 {
-                <img className="image" src={this.props.gnome.thumbnail} alt=""></img>
-                    
-                    // this.props.gnomes.map((gnome) => (
-                    //     <div className="item" key={gnome.id}>
-                    //     < ListItem gnome={gnome}/>
-                    //     </div>
-                    // ))
+                    this.props.gnomeDetailsLoading ?  null : <img src={this.props.gnome.thumbnail} alt=""></img>
                 }
-                halo
+                
+                </div>
             </div>
         );
     }
@@ -36,7 +33,8 @@ class GnomeDetails extends React.Component {
 // }
 
 const mapStateToProps = state => ({
-    gnome: state.gnomes.gnome
+    gnome: state.gnomes.gnome,
+    gnomeDetailsLoading: state.gnomes.gnomeDetailsLoading
 });
 
 export default connect(mapStateToProps, { getGnomeInfo })(GnomeDetails);

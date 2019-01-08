@@ -2,7 +2,8 @@
 
 const initialState = {
     gnomes : [],
-    gnome : null
+    gnome : null,
+    gnomeDetailsLoading : true
 } 
 
 export default function(state=initialState, action){
@@ -15,7 +16,8 @@ export default function(state=initialState, action){
         case "GET_GNOME":
             return{
                 ...state,
-                gnome:action.payload
+                gnome:action.payload,
+                gnomeDetailsLoading: false
             }
         default:
             return state;

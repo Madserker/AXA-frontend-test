@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux';
 import getReducer from './getReducer';
+import filtersReducer from './filtersReducer';
 
 export default combineReducers({
-    gnomes : getReducer
+    gnomes : getReducer,
+    filters : filtersReducer
 });

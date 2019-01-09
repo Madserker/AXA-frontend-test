@@ -3,7 +3,8 @@
 const initialState = {
     gnomes : [],
     gnome : null,
-    gnomeDetailsLoading : true
+    gnomeDetailsLoading : true,
+    listLoading : true,
 } 
 
 export default function(state=initialState, action){
@@ -11,13 +12,15 @@ export default function(state=initialState, action){
         case "FETCH_GNOMES":
             return {
                 ...state,
-                gnomes: action.payload
+                gnomes: action.payload,
+                listLoading: false
             };
         case "GET_GNOME":
             return{
                 ...state,
                 gnome:action.payload,
-                gnomeDetailsLoading: false
+                gnomeDetailsLoading: false,
+                listLoading: true
             }
         default:
             return state;

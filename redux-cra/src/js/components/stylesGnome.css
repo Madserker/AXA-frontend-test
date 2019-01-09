@@ -1,5 +1,5 @@
 body{
-    background-color: #1f1f1f;
+    background-color: #2b2a2a;
     color:rgb(219, 219, 219);
 }
 
@@ -26,7 +26,7 @@ body{
 
 .right_info{
     margin-top: 50px;
-    background-color: #1f1f1f;
+    background-color: #2b2a2a;
     float: left;
     height:93.7vh;
 }

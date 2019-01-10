@@ -1,7 +1,8 @@
 
 
 const initialState = {
-    hairFilters : []
+    hairFilters : [],
+    professionFilters : []
 } 
 
 export default function(state=initialState, action){
@@ -11,13 +12,32 @@ export default function(state=initialState, action){
                 ...state,
                 hairFilters: action.payload,
             };
-        case "GET_GNOME":
-            return{
+            case "HAIR_FILTERS_ADD":
+            return {
                 ...state,
-                gnome:action.payload,
-                gnomeDetailsLoading: false,
-                listLoading: true
-            }
+                hairFilters: action.payload,
+            };
+            case "HAIR_FILTERS_REMOVE":
+            return {
+                ...state,
+                hairFilters: action.payload,
+            };
+            case "PROFESSION_FILTERS_ADD":
+            return {
+                ...state,
+                professionFilters: action.payload,
+            };
+            case "PROFESSION_FILTERS_REMOVE":
+            return {
+                ...state,
+                professionFilters: action.payload,
+            };
+            case "CLEAR_FILTERS":
+            return {
+                ...state,
+                professionFilters: action.payload,
+                hairFilters: action.payload,
+            };
         default:
             return state;
 

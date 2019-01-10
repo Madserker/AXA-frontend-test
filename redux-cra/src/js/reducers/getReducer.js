@@ -12,6 +12,13 @@ export default function(state=initialState, action){
         case "FETCH_GNOMES":
             return {
                 ...state,
+                allGnomes: action.payload,
+                gnomes: action.payload,
+                listLoading: false
+            };
+            case "FETCH_GNOMES_FILTERS":
+            return {
+                ...state,
                 gnomes: action.payload,
                 listLoading: false
             };

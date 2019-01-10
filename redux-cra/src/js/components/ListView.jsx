@@ -2,7 +2,7 @@ import React from 'react';
 import ListItem from './ListItem';
 import './styles.css';
 import { connect } from 'react-redux';
-import {fetchGnomes, fetchGnomesHairFilters} from '../actions/getActions'
+import {fetchGnomes} from '../actions/getActions'
 import PropTypes from 'prop-types';
 
 
@@ -28,7 +28,6 @@ class ListView extends React.Component {
                 </div>
                     :            
                     <div className="allItems">
-                                            <button onClick={()=>this.props.fetchGnomesHairFilters(["Pink"],this.props.gnomes)}></button>  
                       {   
                     this.props.gnomes.map((gnome) => (
                         <div className="item" key={gnome.id}>
@@ -46,14 +45,15 @@ class ListView extends React.Component {
 
 ListView.propTypes = {
     fetchGnomes: PropTypes.func.isRequired,
-    fetchGnomesHairFilters: PropTypes.func.isRequired,
     gnomes: PropTypes.array.isRequired,
+    hairFilters: PropTypes.array.isRequired,
     listLoading: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = state => ({
     gnomes: state.gnomes.gnomes,
-    listLoading: state.gnomes.listLoading
+    listLoading: state.gnomes.listLoading,
+    hairFilters:state.filters.hairFilters
 });
 
-export default connect(mapStateToProps, { fetchGnomes, fetchGnomesHairFilters })(ListView);
+export default connect(mapStateToProps, { fetchGnomes })(ListView);

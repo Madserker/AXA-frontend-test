@@ -29,6 +29,16 @@ export default function(state=initialState, action){
                 gnomeDetailsLoading: false,
                 listLoading: true
             }
+            case "LOADED":
+            return{
+                ...state,
+                listLoading: false
+            }
+            case "RESET":
+            return{
+                ...state,
+                gnomes: state.allGnomes
+            }
         default:
             return state;
 

@@ -24,6 +24,16 @@
     top:25px;
     left:460px;
   }
+  .selectBox4{
+    position: absolute;
+    top:25px;
+    left:580px;
+  }
+  .selectBox5{
+    position: absolute;
+    top:25px;
+    left:730px;
+  }
 
 
   #checkboxes2 {

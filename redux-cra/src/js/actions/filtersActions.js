@@ -6,6 +6,15 @@ export function editHairFilters(filters){
             });
     }
 }
+export function editAgeFilters(filter){
+    return function(dispatch){
+            dispatch({
+                type:"AGE_FILTERS",
+                payload: filter
+            });
+    }
+}
+
 
 export function addHairFilter(filters,filter){
     return function(dispatch){

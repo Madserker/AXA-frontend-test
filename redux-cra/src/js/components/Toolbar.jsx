@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   editHairFilters,
+  editAgeFilters,
   addHairFilter,
   removeHairFilter,
   addProfessionFilter,
@@ -24,7 +25,12 @@ class Toolbar extends React.Component {
   getSliderValue(){
     var slider = document.getElementById("myRange");
     var show = document.getElementById("showSlider");
-    show.outerHTML=slider.value;
+    show.innerHTML="<p id='showSlider'>"+slider.value+"</p>";
+
+    this.props.editAgeFilters(slider.value)
+
+
+
   }
     
     showCheckboxes1() {
@@ -81,24 +87,7 @@ class Toolbar extends React.Component {
     }
 
 
-    //IDEA IN PROGRESS
-    showDetails() {
-      var checkboxes1 = document.getElementById("checkboxes1");
-      var checkboxes2 = document.getElementById("checkboxes2");
-      var slider = document.getElementById("slider");
 
-      if (!this.expanded3) {
-        slider.style.display = "block";
-        checkboxes1.style.display = "none";
-        checkboxes2.style.display = "none";
-        this.expanded2 = false;
-        this.expanded1 = false;
-        this.expanded3 = true;
-      } else {
-        slider.style.display = "none";
-        this.expanded3 = false;
-      }
-    }
 
     handleChange= (event) => {
       if(event.target.checked == true){
@@ -248,14 +237,42 @@ class Toolbar extends React.Component {
                         <div id="slider">
                         <div class="slidecontainer">
                         <p>older than:</p>
-                          <input type="range" min="1" max="100" class="slider" id="myRange" onChange={()=>this.getSliderValue()}></input>
+                          <input type="range" min="1" max="500" class="slider" id="myRange" onChange={()=>this.getSliderValue()}></input>
+                          <p id="showSlider"></p>
+                        </div>
+                        </div>
+                      </div>
+
+                      <div class="multiselect">
+                        <div class="selectBox4" onClick={()=>this.showSlider()}>
+                        <button className="webButton">WEIGHT</button>
+                        <div class="overSelect"></div>
+                        </div>
+                        <div id="slider">
+                        <div class="slidecontainer">
+                        <p>older than:</p>
+                          <input type="range" min="1" max="500" class="slider" id="myRange" onChange={()=>this.getSliderValue()}></input>
+                          <p id="showSlider"></p>
+                        </div>
+                        </div>
+                      </div>
+
+                      <div class="multiselect">
+                        <div class="selectBox5" onClick={()=>this.showSlider()}>
+                        <button className="webButton">HEIGHT</button>
+                        <div class="overSelect"></div>
+                        </div>
+                        <div id="slider">
+                        <div class="slidecontainer">
+                        <p>older than:</p>
+                          <input type="range" min="1" max="500" class="slider" id="myRange" onChange={()=>this.getSliderValue()}></input>
                           <p id="showSlider"></p>
                         </div>
                         </div>
                       </div>
 
                       {/* <button id="filtersButton" onClick={()=>this.props.fetchGnomesHairFilters(this.props.hairFilters,this.props.gnomes)}>Apply</button> */}
-                      <button className="webButton" id="filtersButton" onClick={()=>this.props.fetchGnomesFilters(this.props.hairFilters,this.props.professionFilters,this.props.allGnomes)}>Apply</button>
+                      <button className="webButton" id="filtersButton" onClick={()=>this.props.fetchGnomesFilters(this.props.hairFilters,this.props.professionFilters,this.props.ageFilters,this.props.allGnomes)}>Apply</button>
                   </div>
             </div>
 
@@ -270,6 +287,7 @@ class Toolbar extends React.Component {
 
 Toolbar.propTypes = {
   editHairFilters: PropTypes.func.isRequired,
+  editAgeFilters: PropTypes.func.isRequired,
   search: PropTypes.func.isRequired,
   addHairFilter: PropTypes.func.isRequired,
   removeHairFilter: PropTypes.func.isRequired,
@@ -283,9 +301,10 @@ Toolbar.propTypes = {
 
 const mapStateToProps = state => ({
   hairFilters: state.filters.hairFilters,
+  ageFilters: state.filters.ageFilters,
   professionFilters: state.filters.professionFilters,
   gnomes: state.gnomes.gnomes,
   allGnomes: state.gnomes.allGnomes,
 })
 
-export default connect(mapStateToProps, { search, editHairFilters,addHairFilter,removeHairFilter,addProfessionFilter,removeProfessionFilter, fetchGnomesFilters })(Toolbar);
+export default connect(mapStateToProps, { search, editHairFilters,editAgeFilters,addHairFilter,removeHairFilter,addProfessionFilter,removeProfessionFilter, fetchGnomesFilters })(Toolbar);

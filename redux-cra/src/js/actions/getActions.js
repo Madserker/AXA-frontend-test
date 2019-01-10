@@ -1,6 +1,24 @@
 import {resolve} from "react-resolve"
 var api = "https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json";
 
+export function loaded(){
+    return function(dispatch){
+            dispatch({
+                type:"LOADED",
+                payload: false
+            })
+    }
+}
+
+export function resetList(){
+    return function(dispatch){
+            dispatch({
+                type:"RESET",
+                payload: true
+            })
+    }
+}
+
 export function fetchGnomes(){
     return function(dispatch){
         fetch(api)
@@ -32,16 +50,24 @@ export function getGnomeInfo(id){
 }
 
 
-export function fetchGnomesFilters(hairFilters,professionFilters,gnomes){
+export function fetchGnomesFilters(hairFilters,professionFilters,age,gnomes){
     return function(dispatch){   
         fetchGnomesHairFilters(hairFilters,gnomes).then(
             gnomesf => {
                 fetchGnomesProfessionFilters(professionFilters, gnomesf).then(
-                    gnomesff=>
-                        dispatch({
-                            type:"FETCH_GNOMES_FILTERS",
-                            payload: gnomesff
-                        })
+                    gnomesff=>{
+                        fetchGnomesAgeFilters(age,gnomesff).then(
+                            gnomesfff=>{
+                                dispatch({
+                                    type:"FETCH_GNOMES_FILTERS",
+                                    payload: gnomesfff
+                                })
+                            }
+
+                        )
+
+                    }
+
                     )
             }
         )
@@ -58,13 +84,11 @@ export function search(input,gnomes){
                     payload: gnomesf
                 })
             }
-        )
-
-                    
-            
-        
+        ) 
     }
 }
+
+
 
 //SEARCH FILTERS ACTIONS=================================================
 //Se puede aplicar mas de un filtro a la vez,
@@ -95,6 +119,19 @@ function fetchGnomesProfessionFilters(professionFilters,gnomes){
             //     type:"FETCH_GNOMES",
             //     payload: gnomesFiltered
             // })
+        });      
+    
+}
+
+function fetchGnomesAgeFilters(age,gnomes){  
+    return new Promise(function (resolve, reject){  
+        var gnomesFiltered = [];        
+        gnomes.map(gnome=>{
+            if(gnome.age>age){
+                gnomesFiltered.push(gnome)
+            }
+        })
+        resolve(gnomesFiltered);
         });      
     
 }

@@ -3,7 +3,9 @@
 const initialState = {
     hairFilters : [],
     professionFilters : [],
-    ageFilters: 0
+    ageFilters: 0,
+    heightFilters: 0,
+    weightFilters: 0
 } 
 
 export default function(state=initialState, action){
@@ -43,6 +45,16 @@ export default function(state=initialState, action){
                 ...state,
                 professionFilters: action.payload,
                 hairFilters: action.payload,
+            };
+            case "WEIGHT_FILTERS":
+            return {
+                ...state,
+                weightFilters: action.payload,
+            };
+            case "HEIGHT_FILTERS":
+            return {
+                ...state,
+                heightFilters: action.payload,
             };
         default:
             return state;

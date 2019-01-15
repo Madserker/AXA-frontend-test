@@ -50,7 +50,8 @@ export function getGnomeInfo(id){
 }
 
 
-export function fetchGnomesFilters(hairFilters,professionFilters,age,gnomes){
+
+export function fetchGnomesFilters(hairFilters,professionFilters,age,weight,height,gnomes){
     return function(dispatch){   
         fetchGnomesHairFilters(hairFilters,gnomes).then(
             gnomesf => {
@@ -58,10 +59,16 @@ export function fetchGnomesFilters(hairFilters,professionFilters,age,gnomes){
                     gnomesff=>{
                         fetchGnomesAgeFilters(age,gnomesff).then(
                             gnomesfff=>{
-                                dispatch({
-                                    type:"FETCH_GNOMES_FILTERS",
-                                    payload: gnomesfff
-                                })
+                                fetchGnomesWeightFilters(weight,gnomesfff).then(
+                                    gnomesffff=>{
+                                        fetchGnomesHeightFilters(height,gnomesffff).then(
+                                            gnomesfffff=>{
+                                                dispatch({
+                                                    type:"FETCH_GNOMES_FILTERS",
+                                                    payload: gnomesfffff
+                                                })
+                                            })
+                                    })
                             }
 
                         )
@@ -128,6 +135,32 @@ function fetchGnomesAgeFilters(age,gnomes){
         var gnomesFiltered = [];        
         gnomes.map(gnome=>{
             if(gnome.age>age){
+                gnomesFiltered.push(gnome)
+            }
+        })
+        resolve(gnomesFiltered);
+        });      
+    
+}
+
+function fetchGnomesWeightFilters(weight,gnomes){  
+    return new Promise(function (resolve, reject){  
+        var gnomesFiltered = [];        
+        gnomes.map(gnome=>{
+            if(gnome.weight>weight){
+                gnomesFiltered.push(gnome)
+            }
+        })
+        resolve(gnomesFiltered);
+        });      
+    
+}
+
+function fetchGnomesHeightFilters(height,gnomes){  
+    return new Promise(function (resolve, reject){  
+        var gnomesFiltered = [];        
+        gnomes.map(gnome=>{
+            if(gnome.height>height){
                 gnomesFiltered.push(gnome)
             }
         })

@@ -9,6 +9,12 @@ export default class ListItem extends React.Component {
 
         }
     }
+
+    loadSideNav(){
+
+    }
+
+    
     render(){
         return(
             <Link to={"/details/" + this.props.gnome.id} className="LinkItem">

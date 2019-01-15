@@ -17,6 +17,11 @@ class ListView extends React.Component {
             this.props.resetList();
         }
     }
+
+    loadSideNav(){
+
+    }
+    
     render(){
         return(
             <div className="gnomesList" id="gnomesList">

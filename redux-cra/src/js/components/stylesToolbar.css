@@ -57,6 +57,24 @@
     background-color: #111;
     border-radius: 5px;
   }
+  #slider2 {
+    top:125px;
+    border: 1px #dadada solid;
+    position: fixed;
+    display:none;
+    border: 3px #111 solid;
+    background-color: #111;
+    border-radius: 5px;
+  }
+  #slider3 {
+    top:125px;
+    border: 1px #dadada solid;
+    position: fixed;
+    display:none;
+    border: 3px #111 solid;
+    background-color: #111;
+    border-radius: 5px;
+  }
 
 
 

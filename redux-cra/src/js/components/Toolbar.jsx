@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import {
   editHairFilters,
   editAgeFilters,
+  editHeightFilters,
+  editWeightFilters,
   addHairFilter,
   removeHairFilter,
   addProfessionFilter,
@@ -17,51 +19,94 @@ import PropTypes from 'prop-types';
 
 class Toolbar extends React.Component {
 
+
     expanded1 = false;
     expanded2 = false;
     expanded3 = false;
+    expanded4 = false;
+    expanded5 = false;
+
+//close all
+closeAll(){
+  var checkboxes1 = document.getElementById("checkboxes1");
+  var checkboxes2 = document.getElementById("checkboxes2");
+  var slider = document.getElementById("slider");
+  var slider2 = document.getElementById("slider2");
+  var slider3 = document.getElementById("slider3");
+  this.expanded1 = false;
+  this.expanded2 = false;
+  this.expanded3 = false;
+  this.expanded4 = false;
+  this.expanded5 = false;
+  checkboxes1.style.display = "none";
+  checkboxes2.style.display = "none";
+  slider.style.display = "none";
+  slider2.style.display = "none";
+  slider3.style.display = "none";
+}
+
 
 
   getSliderValue(){
     var slider = document.getElementById("myRange");
     var show = document.getElementById("showSlider");
     show.innerHTML="<p id='showSlider'>"+slider.value+"</p>";
-
     this.props.editAgeFilters(slider.value)
-
-
-
+    this.props.fetchGnomesFilters(
+      this.props.hairFilters,
+      this.props.professionFilters,
+      this.props.ageFilters,
+      this.props.weightFilters,
+      this.props.heightFilters,
+      this.props.allGnomes)
+  
+  }
+  getSlider2Value(){
+    var slider = document.getElementById("myRange2");
+    var show = document.getElementById("showSlider2");
+    show.innerHTML="<p id='showSlider2'>"+slider.value+"</p>";
+    this.props.editWeightFilters(slider.value)
+    this.props.fetchGnomesFilters(
+      this.props.hairFilters,
+      this.props.professionFilters,
+      this.props.ageFilters,
+      this.props.weightFilters,
+      this.props.heightFilters,
+      this.props.allGnomes)
+  
+  }
+  getSlider3Value(){
+    var slider = document.getElementById("myRange3");
+    var show = document.getElementById("showSlider3");
+    show.innerHTML="<p id='showSlider3'>"+slider.value+"</p>";
+    this.props.editHeightFilters(slider.value)
+    this.props.fetchGnomesFilters(
+      this.props.hairFilters,
+      this.props.professionFilters,
+      this.props.ageFilters,
+      this.props.weightFilters,
+      this.props.heightFilters,
+      this.props.allGnomes)
+  
   }
     
     showCheckboxes1() {
       var checkboxes1 = document.getElementById("checkboxes1");
-      var checkboxes2 = document.getElementById("checkboxes2");
-      var slider = document.getElementById("slider");
-
       if (!this.expanded1) {
-        checkboxes1.style.display = "block";
-        checkboxes2.style.display = "none";
-        slider.style.display = "none";
-        this.expanded2 = false;
+        this.closeAll();
         this.expanded1 = true;
-        this.expanded3 = false;
+        checkboxes1.style.display = "block";
       } else {
         checkboxes1.style.display = "none";
         this.expanded1 = false;
       }
     }
     showCheckboxes2() {
-      var checkboxes1 = document.getElementById("checkboxes1");
       var checkboxes2 = document.getElementById("checkboxes2");
-      var slider = document.getElementById("slider");
-
       if (!this.expanded2) {
+        this.closeAll();
         checkboxes2.style.display = "block";
-        checkboxes1.style.display = "none";
-        slider.style.display = "none";
         this.expanded2 = true;
-        this.expanded1 = false;
-        this.expanded3 = false;
       } else {
         checkboxes2.style.display = "none";
         this.expanded2 = false;
@@ -69,20 +114,38 @@ class Toolbar extends React.Component {
     }
 
     showSlider() {
-      var checkboxes1 = document.getElementById("checkboxes1");
-      var checkboxes2 = document.getElementById("checkboxes2");
       var slider = document.getElementById("slider");
-
       if (!this.expanded3) {
+        this.closeAll();
         slider.style.display = "block";
-        checkboxes1.style.display = "none";
-        checkboxes2.style.display = "none";
-        this.expanded2 = false;
-        this.expanded1 = false;
         this.expanded3 = true;
       } else {
         slider.style.display = "none";
         this.expanded3 = false;
+      }
+    }
+
+    showSlider2() {
+      var slider = document.getElementById("slider2");
+      if (!this.expanded4) {
+        this.closeAll();
+        slider.style.display = "block";
+        this.expanded4 = true;
+      } else {
+        slider.style.display = "none";
+        this.expanded4 = false;
+      }
+    }
+
+    showSlider3() {
+      var slider = document.getElementById("slider3");
+      if (!this.expanded5) {
+        this.closeAll();
+        slider.style.display = "block";
+        this.expanded5 = true;
+      } else {
+        slider.style.display = "none";
+        this.expanded5 = false;
       }
     }
 
@@ -95,6 +158,13 @@ class Toolbar extends React.Component {
       }else{
         this.props.removeHairFilter(this.props.hairFilters,event.target.value)
       }
+      this.props.fetchGnomesFilters(
+        this.props.hairFilters,
+        this.props.professionFilters,
+        this.props.ageFilters,
+        this.props.weightFilters,
+        this.props.heightFilters,
+        this.props.allGnomes)
     }
 
     handleChangeProfessions = (event) => {
@@ -103,6 +173,13 @@ class Toolbar extends React.Component {
       }else{
         this.props.removeProfessionFilter(this.props.professionFilters,event.target.value)
       }
+      this.props.fetchGnomesFilters(
+        this.props.hairFilters,
+        this.props.professionFilters,
+        this.props.ageFilters,
+        this.props.weightFilters,
+        this.props.heightFilters,
+        this.props.allGnomes)
     }
 
 
@@ -126,6 +203,8 @@ class Toolbar extends React.Component {
     document.getElementById("checkboxes1").style.display = "none";
     document.getElementById("checkboxes2").style.display = "none";
     document.getElementById("slider").style.display = "none";
+    document.getElementById("slider2").style.display = "none";
+    document.getElementById("slider3").style.display = "none";
   }
 
     render(){
@@ -237,42 +316,39 @@ class Toolbar extends React.Component {
                         <div id="slider">
                         <div class="slidecontainer">
                         <p>older than:</p>
-                          <input type="range" min="1" max="500" class="slider" id="myRange" onChange={()=>this.getSliderValue()}></input>
+                          <input type="range" min="1" max="400" class="slider" id="myRange" onChange={()=>this.getSliderValue()}></input>
                           <p id="showSlider"></p>
                         </div>
                         </div>
                       </div>
 
                       <div class="multiselect">
-                        <div class="selectBox4" onClick={()=>this.showSlider()}>
+                        <div class="selectBox4" onClick={()=>this.showSlider2()}>
                         <button className="webButton">WEIGHT</button>
                         <div class="overSelect"></div>
                         </div>
-                        <div id="slider">
+                        <div id="slider2">
                         <div class="slidecontainer">
-                        <p>older than:</p>
-                          <input type="range" min="1" max="500" class="slider" id="myRange" onChange={()=>this.getSliderValue()}></input>
-                          <p id="showSlider"></p>
+                        <p>more weight than:</p>
+                          <input type="range" min="1" max="50" class="slider" id="myRange2" onChange={()=>this.getSlider2Value()}></input>
+                          <p id="showSlider2"></p>
                         </div>
                         </div>
                       </div>
 
                       <div class="multiselect">
-                        <div class="selectBox5" onClick={()=>this.showSlider()}>
+                        <div class="selectBox5" onClick={()=>this.showSlider3()}>
                         <button className="webButton">HEIGHT</button>
                         <div class="overSelect"></div>
                         </div>
-                        <div id="slider">
+                        <div id="slider3">
                         <div class="slidecontainer">
-                        <p>older than:</p>
-                          <input type="range" min="1" max="500" class="slider" id="myRange" onChange={()=>this.getSliderValue()}></input>
-                          <p id="showSlider"></p>
+                        <p>more height than:</p>
+                          <input type="range" min="1" max="150" class="slider" id="myRange3" onChange={()=>this.getSlider3Value()}></input>
+                          <p id="showSlider3"></p>
                         </div>
                         </div>
                       </div>
-
-                      {/* <button id="filtersButton" onClick={()=>this.props.fetchGnomesHairFilters(this.props.hairFilters,this.props.gnomes)}>Apply</button> */}
-                      <button className="webButton" id="filtersButton" onClick={()=>this.props.fetchGnomesFilters(this.props.hairFilters,this.props.professionFilters,this.props.ageFilters,this.props.allGnomes)}>Apply</button>
                   </div>
             </div>
 
@@ -288,6 +364,8 @@ class Toolbar extends React.Component {
 Toolbar.propTypes = {
   editHairFilters: PropTypes.func.isRequired,
   editAgeFilters: PropTypes.func.isRequired,
+  editWeightFilters: PropTypes.func.isRequired,
+  editHeightFilters: PropTypes.func.isRequired,
   search: PropTypes.func.isRequired,
   addHairFilter: PropTypes.func.isRequired,
   removeHairFilter: PropTypes.func.isRequired,
@@ -302,9 +380,11 @@ Toolbar.propTypes = {
 const mapStateToProps = state => ({
   hairFilters: state.filters.hairFilters,
   ageFilters: state.filters.ageFilters,
+  weightFilters: state.filters.weightFilters,
+  heightFilters: state.filters.heightFilters,
   professionFilters: state.filters.professionFilters,
   gnomes: state.gnomes.gnomes,
   allGnomes: state.gnomes.allGnomes,
 })
 
-export default connect(mapStateToProps, { search, editHairFilters,editAgeFilters,addHairFilter,removeHairFilter,addProfessionFilter,removeProfessionFilter, fetchGnomesFilters })(Toolbar);
+export default connect(mapStateToProps, { search, editHairFilters, editWeightFilters, editHeightFilters, editAgeFilters,addHairFilter,removeHairFilter,addProfessionFilter,removeProfessionFilter, fetchGnomesFilters })(Toolbar);

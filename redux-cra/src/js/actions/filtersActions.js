@@ -14,6 +14,24 @@ export function editAgeFilters(filter){
             });
     }
 }
+export function editHeightFilters(filter){
+    return function(dispatch){
+            dispatch({
+                type:"HEIGHT_FILTERS",
+                payload: filter
+            });
+    }
+}
+
+export function editWeightFilters(filter){
+    return function(dispatch){
+            dispatch({
+                type:"WEIGHT_FILTERS",
+                payload: filter
+            });
+    }
+}
+
 
 
 export function addHairFilter(filters,filter){

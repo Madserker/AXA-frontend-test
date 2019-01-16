@@ -26,8 +26,7 @@ export default function(state=initialState, action){
             return{
                 ...state,
                 gnome:action.payload,
-                gnomeDetailsLoading: false,
-                listLoading: true
+                gnomeDetailsLoading: false
             }
             case "LOADED":
             return{

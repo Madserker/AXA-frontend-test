@@ -1,4 +1,5 @@
 import {resolve} from "react-resolve"
+import { writeLog } from "./logs.js"
 var api = "https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json";
 
 export function loaded(){
@@ -20,18 +21,22 @@ export function resetList(){
 }
 
 export function fetchGnomes(){
+    writeLog("> calling fetchGnomes..")
     return function(dispatch){
         fetch(api)
         .then(res => res.json())
-        .then(gnomes =>
+        .then(gnomes =>{
+            writeLog("> saving gnomes on reducer..")
             dispatch({
                 type:"FETCH_GNOMES",
                 payload: gnomes.Brastlewark
-            }));
+            })});
+        
     }
 }
 
 export function getGnomeInfo(id){
+
     return function(dispatch){
         fetch(api)
         .then(res => res.json())

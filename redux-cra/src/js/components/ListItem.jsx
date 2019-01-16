@@ -11,20 +11,20 @@ export default class ListItem extends React.Component {
     }
 
     loadSideNav(){
-
+        console.log("works")
     }
 
     
     render(){
         return(
-            <Link to={"/details/" + this.props.gnome.id} className="LinkItem">
+            // <Link to={"/details/" + this.props.gnome.id} className="LinkItem">
             <div>
-                <img className="image" src={this.props.gnome.thumbnail} alt=""></img>
+                <img className="image" src={this.props.gnome.thumbnail} alt="" ></img>
                 <div className="infoDiv">
                 <p>{this.props.gnome.name}</p>
                 </div>
             </div>
-            </Link>
+            // </Link>
         )
     }
 }

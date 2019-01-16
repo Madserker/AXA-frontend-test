@@ -15,6 +15,8 @@ import {
 } from '../actions/filtersActions'
 import {fetchGnomesFilters, search } from '../actions/getActions'
 import PropTypes from 'prop-types';
+import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
+import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
 
 
 class Toolbar extends React.Component {
@@ -25,6 +27,8 @@ class Toolbar extends React.Component {
     expanded3 = false;
     expanded4 = false;
     expanded5 = false;
+
+    opened = false;
 
 //close all
 closeAll(){
@@ -191,8 +195,18 @@ closeAll(){
 /* Set the width of the side navigation to 250px */
 
   openNav() {
-    document.getElementById("mySidenav").style.height = "10%";
-    document.getElementById("gnomesList").style.marginTop  = "150px";
+    if(!this.opened){
+      document.getElementById("mySidenav").style.height = "6.5%";
+      document.getElementById("gnomesList").style.marginTop  = "150px";
+      document.getElementById("openButton").innerHTML="&#10006;";
+      this.opened = true;
+    }else{
+      this.closeNav();
+      document.getElementById("openButton").innerHTML="&#9776;";
+      this.opened=false;
+    }
+
+
 
   }
   
@@ -225,16 +239,15 @@ closeAll(){
                     <input type="text" id="search" placeholder="Search.." name="search" onChangeText={()=>this.props.search(document.getElementById("search").value,this.props.allGnomes)} ></input>
                     <button type="submit" value="submit" onClick={()=>this.props.search(document.getElementById("search").value,this.props.allGnomes)}><i className="fa fa-search"></i></button>
             </div>
-            <button className="openFilters" id="openButton" onClick={() => this.openNav()}>&#9776;</button>
+            <DefaultButton className="openFilters" id="openButton" onClick={() => this.openNav()}>&#9776;</DefaultButton>
 
 
             </div>
             <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onClick={() => this.closeNav()}>&times;</a>
 
                       <div class="multiselect">
                         <div class="selectBox1" onClick={()=>this.showCheckboxes1()}>
-                        <button className="webButton">HAIR FILTERS</button>
+                        <DefaultButton className="webButton">HAIR FILTERS</DefaultButton>
                         <div class="overSelect"></div>
                         </div>
                         <div id="checkboxes1">
@@ -252,7 +265,7 @@ closeAll(){
                       </div>
                       <div class="multiselect">
                         <div class="selectBox2" onClick={()=>this.showCheckboxes2()}>
-                        <button className="webButton">PROFESSION FILTERS</button>
+                        <DefaultButton className="webButton">PROFESSION FILTERS</DefaultButton>
                         <div class="overSelect"></div>
                         </div>
                         <div id="checkboxes2">
@@ -310,7 +323,7 @@ closeAll(){
 
                       <div class="multiselect">
                         <div class="selectBox3" onClick={()=>this.showSlider()}>
-                        <button className="webButton">AGE</button>
+                        <DefaultButton className="webButton">AGE</DefaultButton>
                         <div class="overSelect"></div>
                         </div>
                         <div id="slider">
@@ -324,7 +337,7 @@ closeAll(){
 
                       <div class="multiselect">
                         <div class="selectBox4" onClick={()=>this.showSlider2()}>
-                        <button className="webButton">WEIGHT</button>
+                        <DefaultButton className="webButton">WEIGHT</DefaultButton>
                         <div class="overSelect"></div>
                         </div>
                         <div id="slider2">
@@ -338,7 +351,7 @@ closeAll(){
 
                       <div class="multiselect">
                         <div class="selectBox5" onClick={()=>this.showSlider3()}>
-                        <button className="webButton">HEIGHT</button>
+                        <DefaultButton className="webButton">HEIGHT</DefaultButton>
                         <div class="overSelect"></div>
                         </div>
                         <div id="slider3">

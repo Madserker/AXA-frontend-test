@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.6.3",
+    "office-ui-fabric-react": "^6.125.0",
+    "react": "^16.7.0",
     "react-dom": "^16.6.3",
     "react-native-elements": "^0.19.1",
     "react-redux": "^6.0.0",

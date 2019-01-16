@@ -1,9 +1,10 @@
 #filtersButton{
     position: absolute;
     right:0;
-    top:25px;
+    top:30px;
     margin-right:100px;
   }
+
   .multiselect {
     width: 200px; 
     margin-left: 10px;
@@ -17,22 +18,22 @@
   .selectBox2 {
     position: absolute;
     top:25px;
-    left:200px;
+    left:150px;
   }
   .selectBox3{
     position: absolute;
     top:25px;
-    left:460px;
+    left:340px;
   }
   .selectBox4{
     position: absolute;
     top:25px;
-    left:580px;
+    left:435px;
   }
   .selectBox5{
     position: absolute;
     top:25px;
-    left:730px;
+    left:545px;
   }
 
 
@@ -253,8 +254,9 @@
 
 .openFilters{
     float:right;
-    font-size: 30px;
-    margin:3px;
+    font-size: 150px;
+    font-weight: bold;
+    margin-top:8px;
 }
 
 /*TOOLBAR=============================*/
